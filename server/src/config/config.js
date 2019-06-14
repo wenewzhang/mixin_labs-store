@@ -10,5 +10,8 @@ module.exports = {
       storeage: './mixin_labs-store.sqlite'
     }
 
+  },
+  authentication: {
+    jwtSecret: process.env.JWT_SECRET || 'secret'
   }
 }

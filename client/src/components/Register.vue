@@ -33,7 +33,8 @@ export default {
   },
   mounted () {
     setTimeout(() => {
-      this.email = 'hello world'
+      this.email = 'test@gmail.com'
+      this.password = '123456'
     }, 2000)
   }
 }
