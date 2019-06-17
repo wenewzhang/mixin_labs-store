@@ -1,6 +1,6 @@
 <template>
 <div>
-  <h1>Register</h1>
+  <h1>{{ email }}</h1>
   <input v-model="email" type="email" name="email" placeholder="email"/><br>
   <input v-model="password" type="password" name="password" placeholder="password"/><br>
   <button @click="register">Register</button>
@@ -10,6 +10,7 @@
 <script>
 import AuthenticationService from '@/services/AuthenticationService'
 export default {
+  name: 'Register',
   data () {
     return {
       email: '',
@@ -23,12 +24,18 @@ export default {
   },
   methods: {
     async register () {
-      const response = await AuthenticationService.register({
-        email: this.email,
-        password: this.password
-      })
-      console.log('reg:', this.email, this.password)
-      console.log(response.data)
+      try {
+        const response = await AuthenticationService.register({
+          email: this.email,
+          password: this.password
+        })
+        console.log('reg:', this.email, this.password)
+        console.log(response.data)
+        this.$store.dispatch('setToken', response.data.token)
+        this.$store.dispatch('setUser', response.data.user)
+      } catch (error) {
+        console.log(error)
+      }
     }
   },
   mounted () {
