@@ -1,15 +1,22 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <!-- <img src="./assets/logo.png"> -->
+    <!-- <RwvHeader /> -->
+    <page-header />
     <router-view/>
+    <!-- <RwvFooter /> -->
   </div>
 </template>
 
 <script>
+// import RwvHeader from '@/components/TheHeader'
+// import RwvFooter from '@/components/TheFooter'
+import PageHeader from '@/components/Header.vue'
 
 export default {
   name: 'App',
   components: {
+    PageHeader
   }
 }
 </script>
