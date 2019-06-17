@@ -38,7 +38,8 @@ export default {
   data () {
     return {
       email: '',
-      password: ''
+      password: '',
+      error: null
     }
   },
   watch: {
@@ -58,7 +59,7 @@ export default {
         this.$store.dispatch('setToken', response.data.token)
         this.$store.dispatch('setUser', response.data.user)
       } catch (error) {
-        console.log(error)
+        this.error = error.response.data.error
       }
     }
   },
