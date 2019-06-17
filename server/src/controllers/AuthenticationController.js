@@ -1,6 +1,8 @@
 const {User} = require('../models')
 const jwt = require('jsonwebtoken')
 const config = require('../config/config')
+const bcrypt = require('bcrypt');
+const saltRounds = 10
 
 function jwtSignUser (user) {
   const ONE_WEEK = 60 * 60 * 24 * 7
@@ -12,14 +14,10 @@ function jwtSignUser (user) {
 module.exports = {
   async register (req, res) {
      try {
-       console.log('register.....')
-       console.log(req.body)
+       var hash = bcrypt.hashSync(req.body.password, saltRounds)
+       req.body.password = hash
        const user = await User.create(req.body)
-       console.log(user)
        const userJson = user.toJSON()
-       console.log(userJson)
-       // onsole.log("to json ...............")
-       // console.log(userJson)
        res.send({
          user: userJson,
          token: jwtSignUser(userJson)
@@ -51,7 +49,7 @@ module.exports = {
       console.log(isPasswordValid)
       if (!isPasswordValid) {
         return res.status(403).send({
-          error: 'The login information was incorrect2'
+          error: 'The login information was incorrect'
         })
       }
 
