@@ -8,6 +8,13 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
+      path: '/',
+      name: 'Home',
+      component: resolve => {
+        require(['./../components/Home.vue'], resolve)
+      }
+    },
+    {
       path: '/register',
       name: 'register',
       component: Register

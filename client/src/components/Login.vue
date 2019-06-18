@@ -53,6 +53,12 @@ export default {
         this.error = error.response.data.error
       }
     }
+  },
+  mounted () {
+    setTimeout(() => {
+      this.email = 'test@gmail.com'
+      this.password = '123456'
+    }, 2000)
   }
 }
 </script>
