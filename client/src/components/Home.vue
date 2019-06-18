@@ -1,13 +1,13 @@
 <template>
   <hooper   :autoPlay="true" :playSpeed="2000">
     <slide>
-      Buy1
+      <v-btn color="#ffee00">Buy1</v-btn>
     </slide>
     <slide>
-      Buy2
+      <v-btn color="#ffee00">Buy2</v-btn>
     </slide>
     <slide>
-      Buy3
+      <v-btn color="#ffee00">Buy3</v-btn>
     </slide>
     <hooper-progress slot="hooper-addons"></hooper-progress>
   </hooper>
@@ -38,8 +38,5 @@ export default {
  border:2px solid #fff;
  font-size:30px;
  border-radius:10px;
-}
-.is-active {
- background-color:#47da7f;
 }
 </style>
