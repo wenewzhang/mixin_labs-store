@@ -1,13 +1,13 @@
 <template>
   <hooper   :autoPlay="true" :playSpeed="2000">
     <slide>
-      <v-btn color="#ffee00">Buy1</v-btn>
+      <v-btn color="#ffee00" :to="{ name: 'pay' }">Buy1</v-btn>
     </slide>
     <slide>
-      <v-btn color="#ffee00">Buy2</v-btn>
+      <v-btn color="#ffee00" :to="{ name: 'pay' }">Buy2</v-btn>
     </slide>
     <slide>
-      <v-btn color="#ffee00">Buy3</v-btn>
+      <v-btn color="#ffee00" :to="{ name: 'pay' }">Buy3</v-btn>
     </slide>
     <hooper-progress slot="hooper-addons"></hooper-progress>
   </hooper>

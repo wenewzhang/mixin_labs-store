@@ -5,7 +5,7 @@
         class="home"
         tag="span"
         :to="{
-          name: 'songs'
+          name: 'Home'
         }">
         Mixin Store
       </router-link>
