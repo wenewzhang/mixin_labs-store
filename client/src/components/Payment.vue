@@ -3,17 +3,15 @@
     <v-layout row wrap>
       <v-flex xs9>
         <v-card white color="primary">
-          <input type="radio" id="one" value="One" v-model="picked">
-          <label for="one">Pay EOS by Mixin Messenger</label>
+          <select v-model="selected">
+            <option disabled value="">Please select one</option>
+            <option>Pay EOS by Mixin Messenger</option>
+            <option>Pay EOS through Deposit</option>
+          </select>
+          <span>Selected: {{ selected }}</span>
         </v-card>
       </v-flex>
-      <v-flex xs9>
-        <v-card white color="primary">
-          <input type="radio" id="two" value="Two" v-model="picked">
-          <label for="two">Pay EOS through Deposit </label>
-        </v-card>
-      </v-flex>
-      <v-flex xs6>
+        <v-flex xs9>
         <v-card white color="primary">
           <v-btn color="#ffee00" :to="{ name: 'create_order' }">Pay</v-btn>
         </v-card>
@@ -27,9 +25,10 @@
 export default {
   data () {
     return {
-      picked: true
+      selected: 'Pay EOS by Mixin Messenger'
     }
   },
+
   methods: {
     async pay () {
 
