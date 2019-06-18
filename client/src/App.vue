@@ -5,6 +5,17 @@
     <page-header />
     <router-view/>
     <!-- <RwvFooter /> -->
+  <footer class="mt-3 text-center">
+  <div class="container">
+    <span class="text-muted">
+      <small>
+        <img src="./assets/baseline-info-24px.svg">
+        This shop is not real and only for demonstration purposes.
+        <a href="https://github.com/wenewzhang/mixin_labs-store">Source code</a>
+      </small>
+    </span>
+  </div>
+</footer>
   </div>
 </template>
 
