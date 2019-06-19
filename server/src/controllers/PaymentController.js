@@ -9,6 +9,7 @@ module.exports = {
        console.log("payment pay:")
        console.log(req.body)
        const asset = '6cfe566e-4aad-470b-8c9a-2fd35b49c68d'
+       // const asset = '965e5c6e-434c-3fa9-b780-c50f43cd955c'
        orderid = "Order" + Math.floor(Date.now() / 1000)
        newOrder = { 'orderid': orderid, 'assetid': asset, 'status': 'pending'}
        console.log(newOrder)

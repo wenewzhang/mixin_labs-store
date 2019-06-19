@@ -16,6 +16,7 @@
         <v-flex xs9>
         <v-card white color="primary">
           <v-btn color="#ffee00" @click="pay">Pay</v-btn>
+          <p>{{decodedStr}}</p>
         </v-card>
       </v-flex>
     </v-layout>
@@ -24,10 +25,13 @@
 
 <script>
 import AuthenticationService from '@/services/AuthenticationService'
+
 export default {
   data () {
     return {
-      selected: 'mixin'
+      selected: 'mixin',
+      decodedStr: '',
+      error: null
     }
   },
 
@@ -37,7 +41,15 @@ export default {
         const response = await AuthenticationService.pay({
           source: this.selected
         })
-        console.log(response.data)
+        if (response.status === 200) {
+          if (response.data.source === 'deposit') {
+            console.log(response.data)
+            this.decodedStr = atob(response.data.pay)
+          } else {
+            var decodedStr = atob(response.data.pay)
+            window.location.href = decodedStr
+          }
+        }
       } catch (error) {
         this.error = error.response.data.error
       }
