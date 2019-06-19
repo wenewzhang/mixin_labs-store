@@ -1,12 +1,15 @@
 <template>
   <hooper   :autoPlay="true" :playSpeed="2000">
     <slide>
+      <v-chip label>This is a product</v-chip>
       <v-btn v-if="$store.state.isUserLoggedIn" color="#ffee00" :to="{ name: 'pay' }">Buy1</v-btn>
     </slide>
     <slide>
+      <v-chip label>This is a product</v-chip>
       <v-btn v-if="$store.state.isUserLoggedIn" color="#ffee00" :to="{ name: 'pay' }">Buy2</v-btn>
     </slide>
     <slide>
+      <v-chip label>This is a product</v-chip>
       <v-btn v-if="$store.state.isUserLoggedIn" color="#ffee00" :to="{ name: 'pay' }">Buy3</v-btn>
     </slide>
     <hooper-progress slot="hooper-addons"></hooper-progress>
