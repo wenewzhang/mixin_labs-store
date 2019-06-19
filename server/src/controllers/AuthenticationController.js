@@ -16,6 +16,7 @@ module.exports = {
      try {
        var hash = bcrypt.hashSync(req.body.password, saltRounds)
        req.body.password = hash
+       console.log(req.body)
        const user = await User.create(req.body)
        const userJson = user.toJSON()
        res.send({

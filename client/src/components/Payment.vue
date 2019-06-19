@@ -7,8 +7,8 @@
         <v-card white color="primary">
           <select v-model="selected">
             <option disabled value="">Please select one</option>
-            <option>Pay EOS by Mixin Messenger</option>
-            <option>Pay EOS through Deposit</option>
+            <option>mixin</option>
+            <option>deposit</option>
           </select>
           <span>Selected: {{ selected }}</span>
         </v-card>
@@ -27,7 +27,7 @@ import AuthenticationService from '@/services/AuthenticationService'
 export default {
   data () {
     return {
-      selected: 'Pay EOS by Mixin Messenger'
+      selected: 'mixin'
     }
   },
 
