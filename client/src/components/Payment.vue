@@ -1,6 +1,8 @@
 <template>
   <v-container grid-list-md text-xs-center>
     <v-layout row wrap>
+      <div class="danger-alert" v-html="error" />
+      <br>
       <v-flex xs9>
         <v-card white color="primary">
           <select v-model="selected">
@@ -13,7 +15,7 @@
       </v-flex>
         <v-flex xs9>
         <v-card white color="primary">
-          <v-btn color="#ffee00" :to="{ name: 'create_order' }">Pay</v-btn>
+          <v-btn color="#ffee00" @click="pay">Pay</v-btn>
         </v-card>
       </v-flex>
     </v-layout>
@@ -21,7 +23,7 @@
 </template>
 
 <script>
-
+import AuthenticationService from '@/services/AuthenticationService'
 export default {
   data () {
     return {
@@ -31,7 +33,14 @@ export default {
 
   methods: {
     async pay () {
-
+      try {
+        const response = await AuthenticationService.pay({
+          source: this.selected
+        })
+        console.log(response.data)
+      } catch (error) {
+        this.error = error.response.data.error
+      }
     }
   },
   mounted () {
