@@ -1,21 +1,19 @@
-const {User} = require('../models')
-const jwt = require('jsonwebtoken')
-const config = require('../config/config')
-const bcrypt = require('bcrypt');
-const saltRounds = 10
-
-function jwtSignUser (user) {
-  const ONE_WEEK = 60 * 60 * 24 * 7
-  return jwt.sign(user, config.authentication.jwtSecret, {
-    expiresIn: ONE_WEEK
-  })
-}
+const {Order} = require('../models')
 
 module.exports = {
   async pay (req, res) {
      try {
        console.log("payment pay:")
        console.log(req.body)
+       orderid = "Order" + Math.floor(Date.now() / 1000)
+       newOrder = { 'orderid': orderid, assetid: 'eos', status: 'pending'}
+       console.log(newOrder)
+       const order = await Order.create(newOrder)
+       console.log(order)
+       const orderJson =  order.toJSON()
+       res.send({
+         user: orderJson
+       })
      } catch (err) {
        res.status(400).send({
          error: 'There is a error.'
