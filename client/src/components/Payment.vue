@@ -43,7 +43,7 @@ export default {
         })
         if (response.status === 200) {
           if (response.data.source === 'deposit') {
-            console.log(response.data)
+            // console.log(response.data)
             this.decodedStr = atob(response.data.pay)
           } else {
             var decodedStr = atob(response.data.pay)

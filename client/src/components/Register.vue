@@ -42,11 +42,11 @@ export default {
       error: null
     }
   },
-  watch: {
-    email (value) {
-      console.log('email has changed', value)
-    }
-  },
+  // watch: {
+  //   email (value) {
+  //     // console.log('email has changed', value)
+  //   }
+  // },
   methods: {
     async register () {
       try {
@@ -54,8 +54,8 @@ export default {
           email: this.email,
           password: this.password
         })
-        console.log('reg:', this.email, this.password)
-        console.log(response.data)
+        // console.log('reg:', this.email, this.password)
+        // console.log(response.data)
         this.$store.dispatch('setToken', response.data.token)
         this.$store.dispatch('setUser', response.data.user)
         this.$router.push('/')

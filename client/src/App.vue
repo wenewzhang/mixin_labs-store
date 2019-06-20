@@ -1,31 +1,17 @@
 <template>
   <div id="app">
-    <!-- <img src="./assets/logo.png"> -->
-    <!-- <RwvHeader /> -->
+    <img alt="Vue logo" src="./assets/logo.png">
+    <HelloWorld msg="Welcome to Your Vue.js App"/>
     <page-header />
     <router-view/>
-    <!-- <RwvFooter /> -->
-  <footer class="mt-3 text-center">
-  <div class="container">
-    <span class="text-muted">
-      <small>
-        <img src="./assets/baseline-info-24px.svg">
-        This shop is not real and only for demonstration purposes.
-        <a href="https://github.com/wenewzhang/mixin_labs-store">Source code</a>
-      </small>
-    </span>
-  </div>
-</footer>
   </div>
 </template>
 
 <script>
-// import RwvHeader from '@/components/TheHeader'
-// import RwvFooter from '@/components/TheFooter'
 import PageHeader from '@/components/Header.vue'
 
 export default {
-  name: 'App',
+  name: 'app',
   components: {
     PageHeader
   }
