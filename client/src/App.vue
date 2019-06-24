@@ -1,27 +1,27 @@
 <template>
   <div id="app">
-    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <page-header />
     <router-view/>
+    <Footer/>
   </div>
 </template>
 
 <script>
 import PageHeader from '@/components/Header.vue'
+import Footer from '@/components/Footer'
 
 export default {
   name: 'app',
   components: {
-    PageHeader
+    PageHeader,
+    Footer
   }
 }
 </script>
 
 <style>
 #app {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
