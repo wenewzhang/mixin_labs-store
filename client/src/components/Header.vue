@@ -1,8 +1,8 @@
 <template>
   <v-toolbar fixed class="cyan" dark>
     <v-toolbar-title class="mr-4">
-      <font-awesome-icon icon="user-secret" />
-      <font-awesome-icon icon="spinner" />
+      <!-- <font-awesome-icon icon="user-secret" /> -->
+      <!-- <font-awesome-icon icon="spinner" /> -->
       <font-awesome-icon icon="align-left" />
       <router-link
         class="home"

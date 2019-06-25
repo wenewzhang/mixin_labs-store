@@ -9,5 +9,8 @@ export default {
   },
   pay (source) {
     return Api().post('pay', source)
+  },
+  asset_list (source) {
+    return Api().post('asset_list', source)
   }
 }
