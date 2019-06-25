@@ -7,4 +7,5 @@ module.exports = (app) => {
   app.post('/register', AuthenticationController.register)
   app.post('/login', AuthenticationController.login)
   app.post('/pay', isAuthenticated,PaymentController.pay)
+  app.post('/pay_list', PaymentController.pay_list)
 }

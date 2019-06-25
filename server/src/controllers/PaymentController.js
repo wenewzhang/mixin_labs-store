@@ -45,5 +45,32 @@ module.exports = {
          error: 'There is a error.'
        })
      }
- }
+ },
+   async pay_list (req, res) {
+      try {
+        console.log("payment pay_list:")
+        console.log(req.body)
+        const response = await axios.get(config.asset_price_base_on_usdt)
+        // const mxorder = await mixinpayment.create_order(newMxOrder)
+        console.log(response.status)
+        if ( response.status === 200 ) {
+          response.data.data.forEach(function(element) {
+               console.log(element.exchange_asset_symbol + "     " +
+                           element.price + "     " +
+                           element.minimum_amount + "     " +
+                           element.maximum_amount + "     " +
+                           element.exchanges);
+             });
+          console.log(response.data)
+        } else {
+          res.status(400).send({
+            error: 'Request asset price fail from ExinCore!'
+          })
+        }
+      }  catch (err) {
+        res.status(400).send({
+          error: 'There is a error.'
+        })
+      }
+  }
 }
