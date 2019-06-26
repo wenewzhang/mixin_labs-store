@@ -89,9 +89,6 @@ yarn serve
 
 ## Snapshots of this Store
 
-Register 
-https://github.com/wenewzhang/mixin_labs-store/raw/master/pics/login.jpg
+![Register](https://github.com/wenewzhang/mixin_labs-store/raw/master/pics/login.jpg)
 
-Payment 
-
-https://github.com/wenewzhang/mixin_labs-store/raw/master/pics/pay.jpg
+![Payment](https://github.com/wenewzhang/mixin_labs-store/raw/master/pics/pay.jpg)
