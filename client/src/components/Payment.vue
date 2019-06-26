@@ -25,19 +25,6 @@
 
       <v-flex xs12>
         <v-card white color="primary">
-        <v-radio-group v-model="radioGroup">
-        <v-radio
-          v-for="n in asset_price"
-          :key="n.exchange_asset_symbol"
-          :label="`Radio ${n.exchange_asset_symbol}`"
-          :value="n.price"
-        ></v-radio>
-        </v-radio-group>
-        </v-card>
-      </v-flex>
-
-      <v-flex xs12>
-        <v-card white color="primary">
         <v-select v-model="paymentAsset"
           :items="assets"
           item-text="exchange_asset_symbol"

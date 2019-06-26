@@ -5,6 +5,7 @@ import router from './router'
 import store from '@/store/store'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
+import colors from 'vuetify/es5/util/colors'
 // import 'material-design-icons-iconfont/dist/material-design-icons.css'
 // import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 // import { faSpinner, faAlignLeft } from '@fortawesome/free-solid-svg-icons'
@@ -28,7 +29,13 @@ Vue.config.productionTip = false
 
 // Vue.use(Vuetify)
 Vue.use(Vuetify, {
-  iconfont: 'fa'
+  iconfont: 'fa',
+  theme: {
+    primary: '#3f51b5',
+    secondary: '#b0bec5',
+    accent: '#8c9eff',
+    error: '#b71c1c'
+  }
 })
 sync(store, router)
 
