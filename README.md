@@ -92,3 +92,5 @@ yarn serve
 ![Register](https://github.com/wenewzhang/mixin_labs-store/raw/master/pics/login.jpg)
 
 ![Payment](https://github.com/wenewzhang/mixin_labs-store/raw/master/pics/pay.jpg)
+
+![PayEOS](https://github.com/wenewzhang/mixin_labs-store/raw/master/pics/payeos.jpg)
