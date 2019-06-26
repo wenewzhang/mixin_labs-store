@@ -23,18 +23,15 @@
         </v-card>
       </v-flex>
 
-      <v-flex xs12>
-        <v-card white color="primary">
-        <v-select v-model="paymentAsset"
-          :items="assets"
-          item-text="exchange_asset_symbol"
-          box
-          persistent-hint
-          return-object
-          single-line
-          label="Please select one asset:"
-        ></v-select>
-        </v-card>
+      <v-flex xs12 sm6 d-flex>
+        <v-radio-group v-model="radioGroup">
+          <v-radio
+            v-for="n in assets"
+            :key="n.asset"
+            :label="`${n.asset + '(' + n.amount + ')'}`"
+            :value="n.asset"
+          ></v-radio>
+        </v-radio-group>
       </v-flex>
 
       <v-flex xs12>
@@ -60,7 +57,7 @@ export default {
                {value: 'Transfer from my wallet ', source: 'deposit'},
              ],
       error: null,
-      assets: []
+      assets: [ {asset: 'EOS', amount: '1'} ]
     }
   },
 
