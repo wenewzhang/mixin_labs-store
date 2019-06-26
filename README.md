@@ -89,4 +89,9 @@ yarn serve
 
 ## Snapshots of this Store
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+Register 
+https://github.com/wenewzhang/mixin_labs-store/raw/master/pics/login.jpg
+
+Payment 
+
+https://github.com/wenewzhang/mixin_labs-store/raw/master/pics/pay.jpg
