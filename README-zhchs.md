@@ -4,7 +4,7 @@ Express.js是一个轻量级 MVC架构的Web开发框架，适用于Web服务器
 Vue.js是一个渐进式的前端开发框架，你可以自由选择需要的模块集成了你的项目中。
 Mixin Payment是一个开源的，基于Mixin Network开发的加密货币支付方案.
 
-准备工作：
+## 准备工作：
 先安装以一安装包！
 - Go lang  1.12.5
 - npm 6.9.0
