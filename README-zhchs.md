@@ -1,36 +1,38 @@
-#  How to using Express.js & Vue.js create a Bitcoin Payment online shop
-Express.js is a light-weight web application framework to help organize your web application into an MVC architecture on the server side.
-Vue.js is a progressive framework for building user interfaces for frontend developers.
-Mixin Payment is a open source Bitcoin payment base on Mixin Network,
-Here show you how to create a online shop by Expressjs & Vue, and using Mixin Network for confirm the payment instantly!
+#  如何用Express.js & Vue.js 创建一个用比特币支付的在线商店!
+如果你想创建一个在线商店，并用比特币等加密货币来支付，那么这里提供了一个很好的解决方案。
+Express.js是一个轻量级 MVC架构的Web开发框架，适用于Web服务器端开发.
+Vue.js是一个渐进式的前端开发框架，你可以自由选择需要的模块集成了你的项目中。
+Mixin Payment是一个开源的，基于Mixin Network开发的加密货币支付方案.
 
-Prepartions：
-This project dependent on packages like below:
-
+准备工作：
+先安装以一安装包！
 - Go lang  1.12.5
 - npm 6.9.0
 - yarn 1.16.0
 - node v8.16.0
 
-
-## Build server
+## 编译运行服务器
 ``` bash
 git clone https://github.com/wenewzhang/mixin_labs-store.git
 cd server
 npm install
 npm start
 ```
-## Build web client
+## 编译运行前端
 ```bash
 cd client
 yarn
 yarn serve
 ```
-Let client know the server access api url, vi client/services/Api.js
-
+### 前端连接服务端的接口URL
+修改client/services/Api.js文件的baseURL.
+```bash
+vi client/services/Api.js
+```
 - baseURL: 'http://localhost:8081',
 
-## Configure of the server
+## 服务端配置
+服务端配置文件在server/src/config/config.js中，
 ```bash
 vi server/src/config/config.js
 
@@ -54,16 +56,15 @@ module.exports = {
   }
 }
 ```
-- baseURL Let the server know Mixin Payment access url for order create!
-  for example: http://127.0.0.1:8910/create_order
-- asset_price_base_on_usdt  get coins price from ExinCore.
-- db  database settings, here using sqlite, you can using MySQL etc.
-- authentication default is secret.
+- mixin_pay_url 服务端创建订单时，会调用Mixin Payment的服务，如：http://127.0.0.1:8910/create_order
+- asset_price_base_on_usdt  服务端通过ExinCore取比特币等加密货币的即时价格.
+- db   数据库，这里使用sqlite,你可以修改成自己需要的MySQL等.
+- authentication 默认采用secret
 
-## Mixin Payment install
+## Mixin Payment安装与运行
 
-### Go lang installation.
-Steps install Go 1.12.5 on Ubuntu.
+### 安装Go lang
+下面的代码告诉你如何在Ubuntu上安装Go 1.12.5.
 ```bash
 mkdir /usr/local/src
 wget https://dl.google.com/go/go1.12.linux-amd64.tar.gz
@@ -71,16 +72,14 @@ tar xvf go1.12.linux-amd64.tar.gz
 echo 'export PATH=/usr/local/src/go/bin:$PATH' >> ~/.bashrc
 root@n3:/usr/local/src# source  ~/.bashrc
 ```
-
-Set the GOPATH
+并设置好GoPATH
 ```bash
 mkdir ~/workspace/go
 echo 'export GOPATH="$HOME/workspace/go"' >> ~/.bashrc
 source ~/.bash_profile
 ```
 
-
-### Install & run Mixin Payment
+### 安装与运行Mixin Payment
 ```bash
 go get -u github.com/wenewzhang/mixin_payment
 cd ~/workspace/go/src/github.com/wenewzhang/mixin_payment
@@ -92,8 +91,8 @@ go build
 ./noticed &
 ```
 
-### Configure the Mixin Payment
-Step 1: Create a [Mixin Bot](https://mixin-network.gitbook.io/mixin-network/mixin-messenger-app/create-bot-account), Fill the settings information in the config.go
+### Mixin Payment配置
+- 1: 创建一个机器人帐号 [Mixin Bot](https://mixin-network.gitbook.io/mixin-network/mixin-messenger-app/create-bot-account), 将相应的信息输入到config.go
 ```go
 const (
 	ClientId        = "a1ce2967-a534-417d-bf12-c86571e4eefa"
@@ -119,7 +118,7 @@ Q04EytqK7grDDS9PsfeXqdUo0D3NMSJ0BYs/kDsqGSc=
 )
 ```
 
-Step 2: Change the MASTER_UUID  to your Mixin Messenger account uuid, Mixin Payment should transfer the incoming asset to here!
+- 2: 注意： 这里 MASTER_UUID 是你的 [Mixin Messenger](https://mixin.one) 帐号的uuid, Mixin Payment会将收到的币转到这儿!
 ```go
 const (
 	SqlitePath = "./payment.db"
@@ -131,8 +130,7 @@ const (
 	MASTER_UUID               = "0b4f49dc-8fb4-4539-9a89-fb3afc613747" //transfer the coin to master if it setted
 )
 ```
-
-Step 3: All supported Assets list, Put all the supported assets uuid here!
+- 3: 这儿配置所有接受支付的币的uuid!
 ```go
 var Assets = map[string]bool{
 	"815b0b1a-2764-3736-8faa-42d694fa620a": true,
@@ -155,7 +153,7 @@ var Assets = map[string]bool{
 }
 ```
 
-## Snapshots of this Store
+## 运行起来后的效果图
 
 ![Register](https://github.com/wenewzhang/mixin_labs-store/raw/master/pics/login.jpg)
 
